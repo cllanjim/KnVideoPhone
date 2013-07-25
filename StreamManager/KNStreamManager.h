@@ -20,4 +20,6 @@
 - (void)connectServer:(NSString *)ip withPort:(int)port connectBlock:(void(^)(int connectResult))connectBlock;
 - (void)disconnectServer;
 
+- (void)setVideoRecieveBuffer:(uint8_t *)buffer size:(int)size;
+- (void)sendConnectCommand;
 @end

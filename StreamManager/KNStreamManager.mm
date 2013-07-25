@@ -68,6 +68,14 @@ static KNStreamManager* gInstance = nil;
     });
 }
 
+- (void)setVideoRecieveBuffer:(uint8_t *)buffer size:(int)size {
+    self->stream_->registerDecodeStream(1, buffer);
+}
+
+- (void)sendConnectCommand {
+    self->stream_->sendConnectCommand();
+}
+
 - (NSString *)getIPAddress
 {
     struct ifaddrs *interfaces = NULL;

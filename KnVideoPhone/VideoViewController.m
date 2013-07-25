@@ -9,8 +9,11 @@
 #import "VideoViewController.h"
 #import "KNStreamManager.h"
 #import "MediaManager.h"
-@interface VideoViewController ()
-
+@interface VideoViewController () {
+ 
+    uint8_t* videoRecvBuffer_;
+    uint32_t videoRecvBufferSize_;
+}
 @end
 
 @implementation VideoViewController
@@ -34,6 +37,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    videoRecvBufferSize_ = 1280 * 720 >> 3;
+    videoRecvBuffer_ = (uint8_t *)malloc(sizeof(uint8_t) * videoRecvBufferSize_);
 
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     
@@ -55,7 +61,7 @@
                                    appendRTPHeader:NO
                                        encodeBlock:^(uint8_t *encData, int size)
     {
-                                          
+        NSLog(@"enc len : %d", size);
     }];
     
     if (_streamMode == kKNStreamModeServer) {
@@ -76,13 +82,27 @@
 }
 
 - (void)runServerProcess {
+    
+    void(^recvThread)(void) = ^(void) {
+        
+        KNStreamManager* sm = [KNStreamManager sharedObject];
+        while (YES) {
+            
+        }
+    };
 
     _lblMessage.text = [NSString stringWithFormat:@"@Server Start Port : %d", 6000];
+    [[KNStreamManager sharedObject] setVideoRecieveBuffer:videoRecvBuffer_ size:videoRecvBufferSize_];
     [[KNStreamManager sharedObject] openServerPort:6000 acceptBlock:^(int clientAcceptResult) {
         NSLog(@"Client Accept OK");
         [_lblMessage performSelectorOnMainThread:@selector(setText:)
                                       withObject:@"@Client Accept OK"
                                    waitUntilDone:NO];
+        
+        [[KNStreamManager sharedObject] sendConnectCommand];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            recvThread();
+        });
     }];
 }
 

@@ -436,6 +436,8 @@
 		1DBCDE2E179F61E7006B8DDB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yoeng Hyeon Choi (3TC26Y3UZ6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yoeng Hyeon Choi (3TC26Y3UZ6)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KnVideoPhone/KnVideoPhone-Prefix.pch";
 				HEADER_SEARCH_PATHS = ./MediaManager/deploy/include;
@@ -445,6 +447,8 @@
 					"\"$(SRCROOT)/MdediaManager/deploy/lib\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "38168E66-1438-4D34-9CC9-C30C50EFB135";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "38168E66-1438-4D34-9CC9-C30C50EFB135";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -452,6 +456,8 @@
 		1DBCDE2F179F61E7006B8DDB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yoeng Hyeon Choi (3TC26Y3UZ6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yoeng Hyeon Choi (3TC26Y3UZ6)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KnVideoPhone/KnVideoPhone-Prefix.pch";
 				HEADER_SEARCH_PATHS = ./MediaManager/deploy/include;
@@ -461,6 +467,8 @@
 					"\"$(SRCROOT)/MdediaManager/deploy/lib\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "38168E66-1438-4D34-9CC9-C30C50EFB135";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "38168E66-1438-4D34-9CC9-C30C50EFB135";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
