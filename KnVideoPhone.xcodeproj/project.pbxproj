@@ -1,0 +1,492 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1DB0510517A0BD7600B507E0 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0510417A0BD7600B507E0 /* VideoViewController.m */; };
+		1DB0510E17A0BF5400B507E0 /* libMediaManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB0510D17A0BF5400B507E0 /* libMediaManager.a */; };
+		1DB0511017A0BF5D00B507E0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB0510F17A0BF5D00B507E0 /* OpenGLES.framework */; };
+		1DB0511217A0BF6100B507E0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB0511117A0BF6100B507E0 /* QuartzCore.framework */; };
+		1DB0511417A0BF6700B507E0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB0511317A0BF6700B507E0 /* AudioToolbox.framework */; };
+		1DB0511617A0BF6C00B507E0 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB0511517A0BF6C00B507E0 /* CoreMedia.framework */; };
+		1DB0511817A0BF7700B507E0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB0511717A0BF7700B507E0 /* libz.dylib */; };
+		1DB0511A17A0BFF300B507E0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB0511917A0BFF300B507E0 /* AVFoundation.framework */; };
+		1DB0511C17A0C05300B507E0 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB0511B17A0C05300B507E0 /* CoreVideo.framework */; };
+		1DB0511E17A0C05D00B507E0 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB0511D17A0C05C00B507E0 /* Accelerate.framework */; };
+		1DB0512A17A0C14700B507E0 /* AlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0512117A0C14700B507E0 /* AlertManager.m */; };
+		1DB0512B17A0C14700B507E0 /* Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0512317A0C14700B507E0 /* Log.m */; };
+		1DB0512C17A0C14700B507E0 /* LogFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0512517A0C14700B507E0 /* LogFile.m */; };
+		1DB0512D17A0C14700B507E0 /* SettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0512717A0C14700B507E0 /* SettingManager.m */; };
+		1DB0512E17A0C14700B507E0 /* UIDevice+Target.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0512917A0C14700B507E0 /* UIDevice+Target.m */; };
+		1DB0513217A0C61000B507E0 /* CustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB0513117A0C5B000B507E0 /* CustomSegue.m */; };
+		1DB0513817A0D69400B507E0 /* basePeer1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1DB0513517A0D69400B507E0 /* basePeer1.jpg */; };
+		1DB0513917A0D69400B507E0 /* basePeer2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1DB0513617A0D69400B507E0 /* basePeer2.jpg */; };
+		1DB0513A17A0D69400B507E0 /* basePeer3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1DB0513717A0D69400B507E0 /* basePeer3.jpg */; };
+		1DBCDE0B179F61E7006B8DDB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DBCDE0A179F61E7006B8DDB /* UIKit.framework */; };
+		1DBCDE0D179F61E7006B8DDB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DBCDE0C179F61E7006B8DDB /* Foundation.framework */; };
+		1DBCDE0F179F61E7006B8DDB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DBCDE0E179F61E7006B8DDB /* CoreGraphics.framework */; };
+		1DBCDE15179F61E7006B8DDB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DBCDE13179F61E7006B8DDB /* InfoPlist.strings */; };
+		1DBCDE17179F61E7006B8DDB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCDE16179F61E7006B8DDB /* main.m */; };
+		1DBCDE1B179F61E7006B8DDB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCDE1A179F61E7006B8DDB /* AppDelegate.m */; };
+		1DBCDE1D179F61E7006B8DDB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBCDE1C179F61E7006B8DDB /* Default.png */; };
+		1DBCDE1F179F61E7006B8DDB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBCDE1E179F61E7006B8DDB /* Default@2x.png */; };
+		1DBCDE21179F61E7006B8DDB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DBCDE20179F61E7006B8DDB /* Default-568h@2x.png */; };
+		1DBCDE24179F61E7006B8DDB /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DBCDE22179F61E7006B8DDB /* MainStoryboard_iPhone.storyboard */; };
+		1DBCDE27179F61E7006B8DDB /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DBCDE25179F61E7006B8DDB /* MainStoryboard_iPad.storyboard */; };
+		1DBCDE2A179F61E7006B8DDB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCDE29179F61E7006B8DDB /* ViewController.m */; };
+		1DBCDE37179F642C006B8DDB /* AVWritePacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCDE31179F642C006B8DDB /* AVWritePacket.cpp */; };
+		1DBCDE38179F642C006B8DDB /* KNStreamManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCDE34179F642C006B8DDB /* KNStreamManager.mm */; };
+		1DBCDE39179F642C006B8DDB /* StreamManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCDE35179F642C006B8DDB /* StreamManager.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1DB0510317A0BD7600B507E0 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		1DB0510417A0BD7600B507E0 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		1DB0510917A0BF5400B507E0 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		1DB0510A17A0BF5400B507E0 /* KNVideoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNVideoManager.h; sourceTree = "<group>"; };
+		1DB0510B17A0BF5400B507E0 /* MediaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaManager.h; sourceTree = "<group>"; };
+		1DB0510D17A0BF5400B507E0 /* libMediaManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMediaManager.a; sourceTree = "<group>"; };
+		1DB0510F17A0BF5D00B507E0 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		1DB0511117A0BF6100B507E0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1DB0511317A0BF6700B507E0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		1DB0511517A0BF6C00B507E0 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		1DB0511717A0BF7700B507E0 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		1DB0511917A0BFF300B507E0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1DB0511B17A0C05300B507E0 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		1DB0511D17A0C05C00B507E0 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		1DB0512017A0C14700B507E0 /* AlertManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertManager.h; sourceTree = "<group>"; };
+		1DB0512117A0C14700B507E0 /* AlertManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertManager.m; sourceTree = "<group>"; };
+		1DB0512217A0C14700B507E0 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
+		1DB0512317A0C14700B507E0 /* Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Log.m; sourceTree = "<group>"; };
+		1DB0512417A0C14700B507E0 /* LogFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogFile.h; sourceTree = "<group>"; };
+		1DB0512517A0C14700B507E0 /* LogFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogFile.m; sourceTree = "<group>"; };
+		1DB0512617A0C14700B507E0 /* SettingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingManager.h; sourceTree = "<group>"; };
+		1DB0512717A0C14700B507E0 /* SettingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingManager.m; sourceTree = "<group>"; };
+		1DB0512817A0C14700B507E0 /* UIDevice+Target.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Target.h"; sourceTree = "<group>"; };
+		1DB0512917A0C14700B507E0 /* UIDevice+Target.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Target.m"; sourceTree = "<group>"; };
+		1DB0512F17A0C18300B507E0 /* GlobalDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalDefine.h; sourceTree = "<group>"; };
+		1DB0513017A0C5B000B507E0 /* CustomSegue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomSegue.h; sourceTree = "<group>"; };
+		1DB0513117A0C5B000B507E0 /* CustomSegue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomSegue.m; sourceTree = "<group>"; };
+		1DB0513517A0D69400B507E0 /* basePeer1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = basePeer1.jpg; sourceTree = "<group>"; };
+		1DB0513617A0D69400B507E0 /* basePeer2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = basePeer2.jpg; sourceTree = "<group>"; };
+		1DB0513717A0D69400B507E0 /* basePeer3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = basePeer3.jpg; sourceTree = "<group>"; };
+		1DBCDE07179F61E7006B8DDB /* KnVideoPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnVideoPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DBCDE0A179F61E7006B8DDB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1DBCDE0C179F61E7006B8DDB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1DBCDE0E179F61E7006B8DDB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1DBCDE12179F61E7006B8DDB /* KnVideoPhone-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KnVideoPhone-Info.plist"; sourceTree = "<group>"; };
+		1DBCDE14179F61E7006B8DDB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1DBCDE16179F61E7006B8DDB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1DBCDE18179F61E7006B8DDB /* KnVideoPhone-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KnVideoPhone-Prefix.pch"; sourceTree = "<group>"; };
+		1DBCDE19179F61E7006B8DDB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1DBCDE1A179F61E7006B8DDB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1DBCDE1C179F61E7006B8DDB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		1DBCDE1E179F61E7006B8DDB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		1DBCDE20179F61E7006B8DDB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1DBCDE23179F61E7006B8DDB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		1DBCDE26179F61E7006B8DDB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		1DBCDE28179F61E7006B8DDB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		1DBCDE29179F61E7006B8DDB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1DBCDE31179F642C006B8DDB /* AVWritePacket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AVWritePacket.cpp; sourceTree = "<group>"; };
+		1DBCDE32179F642C006B8DDB /* AVWritePacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVWritePacket.h; sourceTree = "<group>"; };
+		1DBCDE33179F642C006B8DDB /* KNStreamManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNStreamManager.h; sourceTree = "<group>"; };
+		1DBCDE34179F642C006B8DDB /* KNStreamManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KNStreamManager.mm; sourceTree = "<group>"; };
+		1DBCDE35179F642C006B8DDB /* StreamManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StreamManager.cpp; sourceTree = "<group>"; };
+		1DBCDE36179F642C006B8DDB /* StreamManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamManager.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1DBCDE04179F61E7006B8DDB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DB0511E17A0C05D00B507E0 /* Accelerate.framework in Frameworks */,
+				1DB0511C17A0C05300B507E0 /* CoreVideo.framework in Frameworks */,
+				1DB0511A17A0BFF300B507E0 /* AVFoundation.framework in Frameworks */,
+				1DB0511817A0BF7700B507E0 /* libz.dylib in Frameworks */,
+				1DB0511617A0BF6C00B507E0 /* CoreMedia.framework in Frameworks */,
+				1DB0511417A0BF6700B507E0 /* AudioToolbox.framework in Frameworks */,
+				1DB0511217A0BF6100B507E0 /* QuartzCore.framework in Frameworks */,
+				1DB0511017A0BF5D00B507E0 /* OpenGLES.framework in Frameworks */,
+				1DBCDE0B179F61E7006B8DDB /* UIKit.framework in Frameworks */,
+				1DBCDE0D179F61E7006B8DDB /* Foundation.framework in Frameworks */,
+				1DBCDE0F179F61E7006B8DDB /* CoreGraphics.framework in Frameworks */,
+				1DB0510E17A0BF5400B507E0 /* libMediaManager.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1DB0510617A0BF5400B507E0 /* MdediaManager */ = {
+			isa = PBXGroup;
+			children = (
+				1DB0510717A0BF5400B507E0 /* deploy */,
+			);
+			path = MdediaManager;
+			sourceTree = "<group>";
+		};
+		1DB0510717A0BF5400B507E0 /* deploy */ = {
+			isa = PBXGroup;
+			children = (
+				1DB0510817A0BF5400B507E0 /* include */,
+				1DB0510C17A0BF5400B507E0 /* lib */,
+			);
+			path = deploy;
+			sourceTree = "<group>";
+		};
+		1DB0510817A0BF5400B507E0 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				1DB0510917A0BF5400B507E0 /* Global.h */,
+				1DB0510A17A0BF5400B507E0 /* KNVideoManager.h */,
+				1DB0510B17A0BF5400B507E0 /* MediaManager.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		1DB0510C17A0BF5400B507E0 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				1DB0510D17A0BF5400B507E0 /* libMediaManager.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		1DB0511F17A0C14700B507E0 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				1DB0513017A0C5B000B507E0 /* CustomSegue.h */,
+				1DB0513117A0C5B000B507E0 /* CustomSegue.m */,
+				1DB0512017A0C14700B507E0 /* AlertManager.h */,
+				1DB0512117A0C14700B507E0 /* AlertManager.m */,
+				1DB0512217A0C14700B507E0 /* Log.h */,
+				1DB0512317A0C14700B507E0 /* Log.m */,
+				1DB0512417A0C14700B507E0 /* LogFile.h */,
+				1DB0512517A0C14700B507E0 /* LogFile.m */,
+				1DB0512617A0C14700B507E0 /* SettingManager.h */,
+				1DB0512717A0C14700B507E0 /* SettingManager.m */,
+				1DB0512817A0C14700B507E0 /* UIDevice+Target.h */,
+				1DB0512917A0C14700B507E0 /* UIDevice+Target.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		1DBCDDFE179F61E7006B8DDB = {
+			isa = PBXGroup;
+			children = (
+				1DB0511F17A0C14700B507E0 /* Util */,
+				1DB0510617A0BF5400B507E0 /* MdediaManager */,
+				1DBCDE30179F642C006B8DDB /* StreamManager */,
+				1DBCDE10179F61E7006B8DDB /* KnVideoPhone */,
+				1DBCDE09179F61E7006B8DDB /* Frameworks */,
+				1DBCDE08179F61E7006B8DDB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1DBCDE08179F61E7006B8DDB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1DBCDE07179F61E7006B8DDB /* KnVideoPhone.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1DBCDE09179F61E7006B8DDB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DB0511D17A0C05C00B507E0 /* Accelerate.framework */,
+				1DB0511B17A0C05300B507E0 /* CoreVideo.framework */,
+				1DB0511917A0BFF300B507E0 /* AVFoundation.framework */,
+				1DB0511717A0BF7700B507E0 /* libz.dylib */,
+				1DB0511517A0BF6C00B507E0 /* CoreMedia.framework */,
+				1DB0511317A0BF6700B507E0 /* AudioToolbox.framework */,
+				1DB0511117A0BF6100B507E0 /* QuartzCore.framework */,
+				1DB0510F17A0BF5D00B507E0 /* OpenGLES.framework */,
+				1DBCDE0A179F61E7006B8DDB /* UIKit.framework */,
+				1DBCDE0C179F61E7006B8DDB /* Foundation.framework */,
+				1DBCDE0E179F61E7006B8DDB /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1DBCDE10179F61E7006B8DDB /* KnVideoPhone */ = {
+			isa = PBXGroup;
+			children = (
+				1DB0512F17A0C18300B507E0 /* GlobalDefine.h */,
+				1DBCDE19179F61E7006B8DDB /* AppDelegate.h */,
+				1DBCDE1A179F61E7006B8DDB /* AppDelegate.m */,
+				1DBCDE22179F61E7006B8DDB /* MainStoryboard_iPhone.storyboard */,
+				1DBCDE25179F61E7006B8DDB /* MainStoryboard_iPad.storyboard */,
+				1DBCDE28179F61E7006B8DDB /* ViewController.h */,
+				1DBCDE29179F61E7006B8DDB /* ViewController.m */,
+				1DB0510317A0BD7600B507E0 /* VideoViewController.h */,
+				1DB0510417A0BD7600B507E0 /* VideoViewController.m */,
+				1DBCDE11179F61E7006B8DDB /* Supporting Files */,
+			);
+			path = KnVideoPhone;
+			sourceTree = "<group>";
+		};
+		1DBCDE11179F61E7006B8DDB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1DB0513517A0D69400B507E0 /* basePeer1.jpg */,
+				1DB0513617A0D69400B507E0 /* basePeer2.jpg */,
+				1DB0513717A0D69400B507E0 /* basePeer3.jpg */,
+				1DBCDE12179F61E7006B8DDB /* KnVideoPhone-Info.plist */,
+				1DBCDE13179F61E7006B8DDB /* InfoPlist.strings */,
+				1DBCDE16179F61E7006B8DDB /* main.m */,
+				1DBCDE18179F61E7006B8DDB /* KnVideoPhone-Prefix.pch */,
+				1DBCDE1C179F61E7006B8DDB /* Default.png */,
+				1DBCDE1E179F61E7006B8DDB /* Default@2x.png */,
+				1DBCDE20179F61E7006B8DDB /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1DBCDE30179F642C006B8DDB /* StreamManager */ = {
+			isa = PBXGroup;
+			children = (
+				1DBCDE31179F642C006B8DDB /* AVWritePacket.cpp */,
+				1DBCDE32179F642C006B8DDB /* AVWritePacket.h */,
+				1DBCDE33179F642C006B8DDB /* KNStreamManager.h */,
+				1DBCDE34179F642C006B8DDB /* KNStreamManager.mm */,
+				1DBCDE35179F642C006B8DDB /* StreamManager.cpp */,
+				1DBCDE36179F642C006B8DDB /* StreamManager.h */,
+			);
+			path = StreamManager;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1DBCDE06179F61E7006B8DDB /* KnVideoPhone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DBCDE2D179F61E7006B8DDB /* Build configuration list for PBXNativeTarget "KnVideoPhone" */;
+			buildPhases = (
+				1DBCDE03179F61E7006B8DDB /* Sources */,
+				1DBCDE04179F61E7006B8DDB /* Frameworks */,
+				1DBCDE05179F61E7006B8DDB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KnVideoPhone;
+			productName = KnVideoPhone;
+			productReference = 1DBCDE07179F61E7006B8DDB /* KnVideoPhone.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1DBCDDFF179F61E7006B8DDB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = cyh;
+			};
+			buildConfigurationList = 1DBCDE02179F61E7006B8DDB /* Build configuration list for PBXProject "KnVideoPhone" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1DBCDDFE179F61E7006B8DDB;
+			productRefGroup = 1DBCDE08179F61E7006B8DDB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1DBCDE06179F61E7006B8DDB /* KnVideoPhone */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1DBCDE05179F61E7006B8DDB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DBCDE15179F61E7006B8DDB /* InfoPlist.strings in Resources */,
+				1DBCDE1D179F61E7006B8DDB /* Default.png in Resources */,
+				1DBCDE1F179F61E7006B8DDB /* Default@2x.png in Resources */,
+				1DBCDE21179F61E7006B8DDB /* Default-568h@2x.png in Resources */,
+				1DBCDE24179F61E7006B8DDB /* MainStoryboard_iPhone.storyboard in Resources */,
+				1DBCDE27179F61E7006B8DDB /* MainStoryboard_iPad.storyboard in Resources */,
+				1DB0513817A0D69400B507E0 /* basePeer1.jpg in Resources */,
+				1DB0513917A0D69400B507E0 /* basePeer2.jpg in Resources */,
+				1DB0513A17A0D69400B507E0 /* basePeer3.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1DBCDE03179F61E7006B8DDB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DB0513217A0C61000B507E0 /* CustomSegue.m in Sources */,
+				1DBCDE17179F61E7006B8DDB /* main.m in Sources */,
+				1DBCDE1B179F61E7006B8DDB /* AppDelegate.m in Sources */,
+				1DBCDE2A179F61E7006B8DDB /* ViewController.m in Sources */,
+				1DBCDE37179F642C006B8DDB /* AVWritePacket.cpp in Sources */,
+				1DBCDE38179F642C006B8DDB /* KNStreamManager.mm in Sources */,
+				1DBCDE39179F642C006B8DDB /* StreamManager.cpp in Sources */,
+				1DB0510517A0BD7600B507E0 /* VideoViewController.m in Sources */,
+				1DB0512A17A0C14700B507E0 /* AlertManager.m in Sources */,
+				1DB0512B17A0C14700B507E0 /* Log.m in Sources */,
+				1DB0512C17A0C14700B507E0 /* LogFile.m in Sources */,
+				1DB0512D17A0C14700B507E0 /* SettingManager.m in Sources */,
+				1DB0512E17A0C14700B507E0 /* UIDevice+Target.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1DBCDE13179F61E7006B8DDB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DBCDE14179F61E7006B8DDB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1DBCDE22179F61E7006B8DDB /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DBCDE23179F61E7006B8DDB /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		1DBCDE25179F61E7006B8DDB /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DBCDE26179F61E7006B8DDB /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DBCDE2B179F61E7006B8DDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1DBCDE2C179F61E7006B8DDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1DBCDE2E179F61E7006B8DDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KnVideoPhone/KnVideoPhone-Prefix.pch";
+				HEADER_SEARCH_PATHS = ./MediaManager/deploy/include;
+				INFOPLIST_FILE = "KnVideoPhone/KnVideoPhone-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/MdediaManager/deploy/lib\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1DBCDE2F179F61E7006B8DDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KnVideoPhone/KnVideoPhone-Prefix.pch";
+				HEADER_SEARCH_PATHS = ./MediaManager/deploy/include;
+				INFOPLIST_FILE = "KnVideoPhone/KnVideoPhone-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/MdediaManager/deploy/lib\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DBCDE02179F61E7006B8DDB /* Build configuration list for PBXProject "KnVideoPhone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DBCDE2B179F61E7006B8DDB /* Debug */,
+				1DBCDE2C179F61E7006B8DDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DBCDE2D179F61E7006B8DDB /* Build configuration list for PBXNativeTarget "KnVideoPhone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DBCDE2E179F61E7006B8DDB /* Debug */,
+				1DBCDE2F179F61E7006B8DDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1DBCDDFF179F61E7006B8DDB /* Project object */;
+}
