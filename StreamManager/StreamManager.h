@@ -14,7 +14,7 @@
 #include <pthread.h>
 //#include <jni.h>
 ///#include <android/log.h>
-//#include "AVDecodeStream.h"
+#include "AVDecodeStream.h"
 #include "AVWritePacket.h"
 
 //#define LOGI(...) __android_log_print(ANDROID_LOG_INFO, "ffmpeg", __VA_ARGS__);
@@ -44,8 +44,8 @@ private :
 	struct sockaddr_in mServerSockAddr;
 	struct sockaddr_in mClientSockAddr;
     unsigned char prefixBuffer[4];
-//    AVDecodeStream *decodeStream[MAX_STREAM_NUM];
-//    AVDecodeStream *currentStream;
+    AVDecodeStream *decodeStream[MAX_STREAM_NUM];
+    AVDecodeStream *currentStream;
 
     AVWritePacket writeCommandPacket;
     AVWritePacket writeResponsePacket;

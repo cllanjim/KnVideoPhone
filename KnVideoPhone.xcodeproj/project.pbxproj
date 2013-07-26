@@ -41,6 +41,7 @@
 		1DBCDE37179F642C006B8DDB /* AVWritePacket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCDE31179F642C006B8DDB /* AVWritePacket.cpp */; };
 		1DBCDE38179F642C006B8DDB /* KNStreamManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCDE34179F642C006B8DDB /* KNStreamManager.mm */; };
 		1DBCDE39179F642C006B8DDB /* StreamManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCDE35179F642C006B8DDB /* StreamManager.cpp */; };
+		1DD2BD9217A2217B00B7F15A /* AVDecodeStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1DD2BD9017A2217B00B7F15A /* AVDecodeStream.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,8 @@
 		1DBCDE34179F642C006B8DDB /* KNStreamManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KNStreamManager.mm; sourceTree = "<group>"; };
 		1DBCDE35179F642C006B8DDB /* StreamManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StreamManager.cpp; sourceTree = "<group>"; };
 		1DBCDE36179F642C006B8DDB /* StreamManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamManager.h; sourceTree = "<group>"; };
+		1DD2BD9017A2217B00B7F15A /* AVDecodeStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AVDecodeStream.cpp; sourceTree = "<group>"; };
+		1DD2BD9117A2217B00B7F15A /* AVDecodeStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVDecodeStream.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +260,8 @@
 				1DBCDE34179F642C006B8DDB /* KNStreamManager.mm */,
 				1DBCDE35179F642C006B8DDB /* StreamManager.cpp */,
 				1DBCDE36179F642C006B8DDB /* StreamManager.h */,
+				1DD2BD9017A2217B00B7F15A /* AVDecodeStream.cpp */,
+				1DD2BD9117A2217B00B7F15A /* AVDecodeStream.h */,
 			);
 			path = StreamManager;
 			sourceTree = "<group>";
@@ -344,6 +349,7 @@
 				1DB0512C17A0C14700B507E0 /* LogFile.m in Sources */,
 				1DB0512D17A0C14700B507E0 /* SettingManager.m in Sources */,
 				1DB0512E17A0C14700B507E0 /* UIDevice+Target.m in Sources */,
+				1DD2BD9217A2217B00B7F15A /* AVDecodeStream.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,8 +442,8 @@
 		1DBCDE2E179F61E7006B8DDB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Yoeng Hyeon Choi (3TC26Y3UZ6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yoeng Hyeon Choi (3TC26Y3UZ6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: sungjin baek (474SSL9952)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: sungjin baek (474SSL9952)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KnVideoPhone/KnVideoPhone-Prefix.pch";
 				HEADER_SEARCH_PATHS = ./MediaManager/deploy/include;
@@ -447,8 +453,8 @@
 					"\"$(SRCROOT)/MdediaManager/deploy/lib\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "38168E66-1438-4D34-9CC9-C30C50EFB135";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "38168E66-1438-4D34-9CC9-C30C50EFB135";
+				PROVISIONING_PROFILE = "EC284140-2272-4E9F-B808-9C58016A4541";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EC284140-2272-4E9F-B808-9C58016A4541";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -456,8 +462,8 @@
 		1DBCDE2F179F61E7006B8DDB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Yoeng Hyeon Choi (3TC26Y3UZ6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yoeng Hyeon Choi (3TC26Y3UZ6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: sungjin baek (474SSL9952)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: sungjin baek (474SSL9952)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KnVideoPhone/KnVideoPhone-Prefix.pch";
 				HEADER_SEARCH_PATHS = ./MediaManager/deploy/include;
@@ -467,8 +473,8 @@
 					"\"$(SRCROOT)/MdediaManager/deploy/lib\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "38168E66-1438-4D34-9CC9-C30C50EFB135";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "38168E66-1438-4D34-9CC9-C30C50EFB135";
+				PROVISIONING_PROFILE = "EC284140-2272-4E9F-B808-9C58016A4541";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EC284140-2272-4E9F-B808-9C58016A4541";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

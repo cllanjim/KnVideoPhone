@@ -7,8 +7,8 @@ StreamManager::StreamManager() {
     mServerSocketFD = -1;
     mSocketFile = -1;
 
-//	for(int i=0;i<MAX_STREAM_NUM;i++)
-//		decodeStream[i] = NULL;
+	for(int i=0;i<MAX_STREAM_NUM;i++)
+		decodeStream[i] = NULL;
 
     pthread_mutexattr_t mAttr;
     pthread_mutexattr_settype(&mAttr, 3);
@@ -16,10 +16,10 @@ StreamManager::StreamManager() {
 }
 
 StreamManager::~StreamManager() {
-//	for(int i=0;i<MAX_STREAM_NUM;i++) {
-//		if(decodeStream[i]!=NULL)
-//			delete decodeStream[i];
-//	}
+	for(int i=0;i<MAX_STREAM_NUM;i++) {
+		if(decodeStream[i]!=NULL)
+			delete decodeStream[i];
+	}
 	delete writeBuffer;
 	pthread_mutex_destroy (&mWriteLock);
 }
@@ -136,11 +136,11 @@ int StreamManager::connectToServer(const char *ipaddress, int port)
 }
 
 void StreamManager::registerDecodeStream(int stream_id, unsigned char *pBuffer) {
-//	if(decodeStream[stream_id] == NULL) {
-//		decodeStream[stream_id]  = new AVDecodeStream(pBuffer);
-//
+	if(decodeStream[stream_id] == NULL) {
+		decodeStream[stream_id]  = new AVDecodeStream(pBuffer);
+
 //	    LOGI("registerDecodeStream : %d %x", stream_id, decodeStream[stream_id]);
-//	}
+	}
 }
 
 int StreamManager::readFrame() {
@@ -166,13 +166,13 @@ int StreamManager::readFrame() {
 	endOfStream = prefixBuffer[2] & 0x80;
 	stream_id = ((int)prefixBuffer[1]) & 0x0F;
 	payload_len = (((int)prefixBuffer[2] & 0x7F) << 8) + (int)prefixBuffer[3];
-//	currentStream = decodeStream[stream_id];
-//	currentStream->len += payload_len;
+	currentStream = decodeStream[stream_id];
+	currentStream->len += payload_len;
 
 	do{
-//		readSize = recv(mClientSocketFD, currentStream->buffer + currentStream->offset, payload_len, 0);
+		readSize = recv(mClientSocketFD, currentStream->buffer + currentStream->offset, payload_len, 0);
 		if(readSize>=0) {
-//			currentStream->offset += readSize;
+			currentStream->offset += readSize;
 			payload_len -= readSize;
 		}
 		else {
@@ -191,8 +191,8 @@ int StreamManager::getFrameLength(int stream_id) {
 	return 0;
 }
 void StreamManager::resetFrame(int stream_id) {
-//	if(decodeStream[stream_id]!=NULL)
-//		decodeStream[stream_id]->reset();
+	if(decodeStream[stream_id]!=NULL)
+		decodeStream[stream_id]->reset();
 }
 
 int StreamManager::write(AVWritePacket *packet) {
