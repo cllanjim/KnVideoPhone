@@ -24,4 +24,10 @@
 - (void)setServerPort:(NSInteger)port;
 - (NSInteger)getServerPort;
 
+- (void)setCaptureFPS:(NSInteger)fps;
+- (NSInteger)getCaptureFPS;
+
+- (void)setCaptureResolution:(NSInteger)resolutionHeigh;
+- (NSInteger)getCaptureResolution;
+
 @end

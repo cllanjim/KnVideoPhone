@@ -14,6 +14,8 @@ static SettingManager* gInstance = nil;
 #define kPropKeyAppVersion              @"appVersion"
 #define kPropKeyServerIP                @"serverIP"
 #define kPropKeyServerPort              @"serverPort"
+#define kPropKeyCaptureFPS              @"captureFPS"
+#define kPropKeyCaptureResolution       @"caprureResolution"
 
 
 #define SETTINGS    [NSUserDefaults standardUserDefaults]
@@ -116,5 +118,30 @@ static SettingManager* gInstance = nil;
     return [SETTINGS integerForKey:kPropKeyServerPort];
 }
 
+- (void)setCaptureFPS:(NSInteger)fps {
+    [SETTINGS setInteger:fps forKey:kPropKeyCaptureFPS];
+}
+
+- (NSInteger)getCaptureFPS {
+
+    id obj = [SETTINGS objectForKey:kPropKeyCaptureFPS];
+    if (obj == nil)
+        [SETTINGS setInteger:DEFAULT_CAPTURE_FPS forKey:kPropKeyCaptureFPS];
+    
+    return [SETTINGS integerForKey:kPropKeyCaptureFPS];
+}
+
+- (void)setCaptureResolution:(NSInteger)resolutionHeigh {
+    [SETTINGS setInteger:resolutionHeigh forKey:kPropKeyCaptureResolution];
+}
+
+- (NSInteger)getCaptureResolution {
+
+    id obj = [SETTINGS objectForKey:kPropKeyCaptureResolution];
+    if (obj == nil)
+        [SETTINGS setInteger:DEFAULT_CAPTURE_HEIGHT forKey:kPropKeyCaptureResolution];
+    
+    return [SETTINGS integerForKey:kPropKeyCaptureResolution];
+}
 
 @end

@@ -138,8 +138,8 @@ int StreamManager::connectToServer(const char *ipaddress, int port)
 void StreamManager::registerDecodeStream(int stream_id, unsigned char *pBuffer) {
 	if(decodeStream[stream_id] == NULL) {
 		decodeStream[stream_id]  = new AVDecodeStream(pBuffer);
-
-//	    LOGI("registerDecodeStream : %d %x", stream_id, decodeStream[stream_id]);
+        
+        printf("registerDecodeStream : %d %p", stream_id, decodeStream[stream_id]);
 	}
 }
 
@@ -153,13 +153,13 @@ int StreamManager::readFrame() {
 			prefix_len -= readSize;
 		}
 		else {
-//			LOGI("error : socket disconnect1");
+            printf("error : socket disconnect1");
 			return SOCKET_DISCONNECT;
 		}
 	} while(prefix_len>0);
 
 	if(prefixBuffer[0] != 0xFF) {
-//		LOGI("error : parse prefix0 %x", prefixBuffer[0]);
+        printf("error : parse prefix0 %x", prefixBuffer[0]);
 		return PACKET_PARSE_ERROR;
 	}
 
@@ -176,7 +176,7 @@ int StreamManager::readFrame() {
 			payload_len -= readSize;
 		}
 		else {
-//			LOGI("error : socket disconnect2");
+            printf("error : socket disconnect2");
 			return -3;
 		}
 	} while(payload_len>0);

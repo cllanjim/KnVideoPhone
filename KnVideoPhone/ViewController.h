@@ -15,6 +15,8 @@
 @property (retain, nonatomic) IBOutlet UITextField* tfPort;
 @property (retain, nonatomic) IBOutlet UIButton* btnStartServer;
 @property (retain, nonatomic) IBOutlet UIButton* btnConnectServer;
+@property (retain, nonatomic) IBOutlet UITextField* tfCaptureFPS;
+@property (retain, nonatomic) IBOutlet UISegmentedControl* segResolution;
 
 - (IBAction)startServer:(id)sender;
 - (IBAction)connectToServer:(id)sender;

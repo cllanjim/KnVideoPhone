@@ -9,16 +9,16 @@
 #ifndef __KnVideoPhone__AVDecodeStream__
 #define __KnVideoPhone__AVDecodeStream__
 
-#include <iostream>
+//#include <iostream>
 
 class AVDecodeStream {
 public:
-    uint8_t* buffer;
-    uint32_t len;
-    uint32_t offset;
+    unsigned char* buffer;
+    int len;
+    int offset;
     
 public:
-    AVDecodeStream(uint8_t* pBuffer);
+    AVDecodeStream(unsigned char* pBuffer);
     virtual ~AVDecodeStream();
     void reset();
     

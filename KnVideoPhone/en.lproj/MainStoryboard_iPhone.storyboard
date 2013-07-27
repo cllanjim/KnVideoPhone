@@ -67,11 +67,35 @@
                                     <action selector="connectToServer:" destination="2" eventType="touchUpInside" id="DVq-mH-CTU"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="15" borderStyle="roundedRect" minimumFontSize="17" id="zlZ-nY-bdE">
+                                <rect key="frame" x="203" y="227" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="FPS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7hR-J1-9hv">
+                                <rect key="frame" x="27" y="231" width="126" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="ajD-RX-3v1">
+                                <rect key="frame" x="20" y="276" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="176x144"/>
+                                    <segment title="352x288"/>
+                                    <segment title="640x480"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="lblIPAddress" destination="vui-WC-fau" id="Xn7-Zu-EP4"/>
+                        <outlet property="segResolution" destination="ajD-RX-3v1" id="a2x-cg-JmL"/>
+                        <outlet property="tfCaptureFPS" destination="zlZ-nY-bdE" id="rzx-lC-aQs"/>
                         <outlet property="tfIPAddress" destination="Ici-He-Krz" id="Cq1-qJ-cWx"/>
                         <outlet property="tfPort" destination="TPK-bU-6P1" id="INz-cy-tkl"/>
                     </connections>
@@ -118,22 +142,14 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="Q71-lX-dKv" userLabel="View - Preview">
-                                <rect key="frame" x="214" y="414" width="86" height="105"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <rect key="frame" x="227" y="51" width="86" height="105"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" id="UWe-2t-rmg" userLabel="UILabel - Message">
-                                <rect key="frame" x="5" y="527" width="310" height="21"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="lblMessage" destination="UWe-2t-rmg" id="HSM-91-dm1"/>
                         <outlet property="naviBar" destination="BKz-IH-X97" id="DaQ-g3-Ufw"/>
                         <outlet property="view" destination="biH-O2-KL3" id="hyr-9u-Qnq"/>
                         <outlet property="viewPeer" destination="DB1-Pk-TPp" id="oMI-tf-icG"/>
@@ -146,31 +162,6 @@
             <point key="canvasLocation" x="627" y="189"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="VideoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VideoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="exit:"/>
-                <relationship kind="outlet" name="lblMessage" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="naviBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="viewPeer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="viewPeerImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="viewPreview" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="connectToServer:"/>
-                <relationship kind="action" name="startServer:"/>
-                <relationship kind="outlet" name="btnConnectServer" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnStartServer" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="lblIPAddress" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tfIPAddress" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="tfPort" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

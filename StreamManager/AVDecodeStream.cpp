@@ -9,7 +9,7 @@
 #include "AVDecodeStream.h"
 
 
-AVDecodeStream::AVDecodeStream(uint8_t* pBuffer)
+AVDecodeStream::AVDecodeStream(unsigned char* pBuffer)
 {
     buffer = pBuffer;
     len = 0;
@@ -19,7 +19,7 @@ AVDecodeStream::AVDecodeStream(uint8_t* pBuffer)
 
 AVDecodeStream::~AVDecodeStream()
 {
-    buffer = NULL;
+    buffer = 0;
 }
 
 void AVDecodeStream::reset()

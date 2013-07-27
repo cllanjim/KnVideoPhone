@@ -23,6 +23,8 @@
 @synthesize tfPort              = _tfPort;
 @synthesize btnStartServer      = _btnStartServer;
 @synthesize btnConnectServer    = _btnConnectServer;
+@synthesize tfCaptureFPS        = _tfCaptureFPS;
+@synthesize segResolution       = _segResolution;
 
 - (void)dealloc {
 
@@ -31,6 +33,8 @@
     [_tfPort release];
     [_btnStartServer release];
     [_btnConnectServer release];
+    [_tfCaptureFPS release];
+    [_segResolution release];
 
     [super dealloc];
 }
@@ -53,6 +57,22 @@
     
     _tfIPAddress.text = [[SettingManager sharedObject] getServerIP];
     _tfPort.text = [NSString stringWithFormat:@"%d", [[SettingManager sharedObject] getServerPort]];
+    _tfCaptureFPS.text = [NSString stringWithFormat:@"%d", [[SettingManager sharedObject] getCaptureFPS]];
+    
+    NSInteger resolution = [[SettingManager sharedObject] getCaptureResolution];
+    int selected = 0;
+    switch (resolution) {
+        case 144:
+            selected = 0;
+            break;
+        case 288:
+            selected = 1;
+            break;
+        case 480:
+            selected = 2;
+            break;
+    }
+    [_segResolution setSelectedSegmentIndex:selected];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -65,6 +85,29 @@
     
     [[SettingManager sharedObject] setServerIP:_tfIPAddress.text];
     [[SettingManager sharedObject] setServerPort:[_tfPort.text integerValue]];
+    
+    NSInteger fps = [_tfCaptureFPS.text integerValue];
+    if (fps <= 0)
+        fps = 1;
+    if (fps > 30)
+        fps = 30;
+    _tfCaptureFPS.text = [NSString stringWithFormat:@"%d", fps];
+    [[SettingManager sharedObject] setCaptureFPS:fps];
+    
+    NSInteger resolution = 288;
+    int selected = _segResolution.selectedSegmentIndex;
+    switch (selected) {
+        case 0:
+            resolution = 144;
+            break;
+        case 1:
+            resolution = 288;
+            break;
+        case 2:
+            resolution = 480;
+            break;
+    }
+    [[SettingManager sharedObject] setCaptureResolution:resolution];
     [[SettingManager sharedObject] save];
     
     [_tfIPAddress resignFirstResponder];
@@ -89,19 +132,15 @@
     [self showVideoViewWithStreamMode:kKNStreamModeServer];
 }
 
-- (IBAction)connectToServer:(id)sender {
-    
-    NSString* ip = _tfIPAddress.text;
-    NSInteger port = [_tfPort.text integerValue];
-    [[KNStreamManager sharedObject] connectServer:ip withPort:port connectBlock:^(int connectResult) {
-        [self showVideoViewWithStreamMode:kKNStreamModeClient];
-    }];
+- (IBAction)connectToServer:(id)sender {    
+    [self showVideoViewWithStreamMode:kKNStreamModeClient];
 }
 
 #pragma mark - UITouch
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     [_tfIPAddress resignFirstResponder];
     [_tfPort resignFirstResponder];
+    [_tfCaptureFPS resignFirstResponder];
 }
 
 #pragma mark - UITextFieldDelegate

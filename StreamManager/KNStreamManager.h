@@ -14,12 +14,15 @@
 
 - (NSString *)getIPAddress;
 
-- (void)openServerPort:(int)port acceptBlock:(void(^)(int clientAcceptResult))acceptBlock;
+- (void)openServerPort:(int)port acceptBlock:(void(^)(int clientAcceptResult))acceptBlock failBlock:(void(^)(void))failBlock;
 - (void)closeServer;
 
 - (void)connectServer:(NSString *)ip withPort:(int)port connectBlock:(void(^)(int connectResult))connectBlock;
 - (void)disconnectServer;
 
-- (void)setVideoRecieveBuffer:(uint8_t *)buffer size:(int)size;
-- (void)sendConnectCommand;
+- (void)setVideoRecieveBuffer;
+
+- (void)readFrameWithReadBlock:(void(^)(int streamid, uint8_t* buffer, int size))readBlock;
+- (void)readFrameStopWithThreadStopBlock:(void(^)(void))threadStopBlock;
+- (int)writeFram:(uint8_t *)buffer size:(int)size;
 @end

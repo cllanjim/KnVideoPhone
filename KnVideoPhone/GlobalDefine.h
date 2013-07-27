@@ -9,7 +9,11 @@
 #ifndef KnVideoPhone_GlobalDefine_h
 #define KnVideoPhone_GlobalDefine_h
 
-#define SETTING_MANAGER_VERSION @"1.0"
-#define APP_VERSION @"1.0"
+#define SETTING_MANAGER_VERSION     @"1.0"
+#define APP_VERSION                 @"1.0"
+
+#define DEFAULT_CAPTURE_FPS         15
+
+#define DEFAULT_CAPTURE_HEIGHT      288    //144(176x144), 288(352x288), 480(640x480)
 
 #endif

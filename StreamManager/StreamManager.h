@@ -38,7 +38,7 @@ class StreamManager {
 //public :
 //	JavaVM *jvm;
 //	JNIEnv *mEnv;
-private :
+public :
     int mServerSocketFD, mClientSocketFD;
 	// server side
 	struct sockaddr_in mServerSockAddr;
@@ -67,9 +67,6 @@ private :
 	int writeSize;
 
 public:
-//	StreamManager(JNIEnv *env);
-//	~StreamManager();
-    
     StreamManager();
 	virtual ~StreamManager();
 

@@ -19,7 +19,7 @@ typedef enum {
 @property (retain, nonatomic) IBOutlet UIView* viewPeer;
 @property (retain, nonatomic) IBOutlet UIImageView* viewPeerImage;
 @property (retain, nonatomic) IBOutlet UIView* viewPreview;
-@property (retain, nonatomic) IBOutlet UILabel* lblMessage;
+
 
 @property (assign, nonatomic) KNStreamMode streamMode;
 
