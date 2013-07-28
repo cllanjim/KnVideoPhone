@@ -11,6 +11,8 @@
 #import "MediaManager.h"
 #import "SettingManager.h"
 #import "AlertManager.h"
+#import "MediaVideoParam.h"
+#import "MediaManager2.h"
 
 @interface VideoViewController ()
 @property (assign, atomic) BOOL sendVideoFrame;
@@ -49,9 +51,10 @@
     NSLog(@"@StreamMode : %d, %d", _streamMode, peerImageNum);
     _naviBar.topItem.title = [[KNStreamManager sharedObject] getIPAddress];
 
-    [self startVideoCapture];
-    [self startStream];
+//    [self startVideoCapture];
+//    [self startStream];
 
+    [self startVideoCapture2];
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,6 +93,51 @@
              [[KNStreamManager sharedObject] writeFram:encData size:size];
          }
      }];
+}
+
+
+- (void)startVideoCapture2 {
+    
+    NSInteger captureFPS = [[SettingManager sharedObject] getCaptureFPS];
+    NSInteger captureResolution = [[SettingManager sharedObject] getCaptureResolution];
+    
+    KNCaptureResolution resolution = kKNCaptureLow;
+    switch (captureResolution) {
+        case 144:
+            resolution = kKNCaptureLow;
+            break;
+        case 288:
+            resolution = kKNCapture288;
+            break;
+        case 480:
+            resolution = kKNCapture480;
+            break;
+    }
+
+    
+    MediaVideoParam* param = [[MediaVideoParam alloc] init];
+    param.viewPreview = _viewPreview;
+    param.videoCodec = kKNVideoVP8;
+    param.captureResolution = resolution;
+    param.captureFPS = captureFPS;
+    param.captureOrientation = kKNVideoOrientationPortrait;
+    param.packetizeMode = kKNPacketizeMode_Single_Nal;
+    param.appendRtpHeader = NO;
+    [param setEncOuputBlock:^(uint8_t *encBuffer, int size) {
+        
+//        [[MediaManager2 sharedObject] decodeVideo:_viewPeer
+//                                          encData:encBuffer
+//                                             size:size
+//                                        videoType:kKNVideoVP8
+//                                    packetizeMode:kKNPacketizeMode_Single_Nal];
+        [[MediaManager2 sharedObject] decodeVideo2:_viewPeer encData:encBuffer size:size];
+    }];
+    [[MediaManager2 sharedObject] startVideoWithParam:param];
+    [param release];
+    
+    
+    
+    
 }
 
 - (void)startStream {
