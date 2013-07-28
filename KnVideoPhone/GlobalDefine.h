@@ -16,4 +16,6 @@
 
 #define DEFAULT_CAPTURE_HEIGHT      288    //144(176x144), 288(352x288), 480(640x480)
 
+#define DEFUALT_VIDEO_CODEC         0       //0:H.264, 1:VP8
+
 #endif

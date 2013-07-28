@@ -16,6 +16,7 @@ static SettingManager* gInstance = nil;
 #define kPropKeyServerPort              @"serverPort"
 #define kPropKeyCaptureFPS              @"captureFPS"
 #define kPropKeyCaptureResolution       @"caprureResolution"
+#define kPropKeyVideoCodec              @"videoCodec"
 
 
 #define SETTINGS    [NSUserDefaults standardUserDefaults]
@@ -142,6 +143,19 @@ static SettingManager* gInstance = nil;
         [SETTINGS setInteger:DEFAULT_CAPTURE_HEIGHT forKey:kPropKeyCaptureResolution];
     
     return [SETTINGS integerForKey:kPropKeyCaptureResolution];
+}
+
+- (void)setVideoCodec:(NSInteger)videoCodec {
+    [SETTINGS setInteger:videoCodec forKey:kPropKeyVideoCodec];
+}
+
+- (NSInteger)getVideoCodec {
+    
+    id obj = [SETTINGS objectForKey:kPropKeyVideoCodec];
+    if (obj == nil)
+        [SETTINGS setInteger:DEFUALT_VIDEO_CODEC forKey:kPropKeyVideoCodec];
+    
+    return [SETTINGS integerForKey:kPropKeyVideoCodec];
 }
 
 @end

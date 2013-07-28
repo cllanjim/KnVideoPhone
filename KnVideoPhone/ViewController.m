@@ -25,6 +25,7 @@
 @synthesize btnConnectServer    = _btnConnectServer;
 @synthesize tfCaptureFPS        = _tfCaptureFPS;
 @synthesize segResolution       = _segResolution;
+@synthesize segVideoCodec       = _segVideoCodec;
 
 - (void)dealloc {
 
@@ -35,6 +36,7 @@
     [_btnConnectServer release];
     [_tfCaptureFPS release];
     [_segResolution release];
+    [_segVideoCodec release];
 
     [super dealloc];
 }
@@ -73,6 +75,7 @@
             break;
     }
     [_segResolution setSelectedSegmentIndex:selected];
+    [_segVideoCodec setSelectedSegmentIndex:[[SettingManager sharedObject] getVideoCodec]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -108,6 +111,8 @@
             break;
     }
     [[SettingManager sharedObject] setCaptureResolution:resolution];
+    [[SettingManager sharedObject] setVideoCodec:_segVideoCodec.selectedSegmentIndex];
+    
     [[SettingManager sharedObject] save];
     
     [_tfIPAddress resignFirstResponder];

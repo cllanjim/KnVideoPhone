@@ -30,4 +30,7 @@
 - (void)setCaptureResolution:(NSInteger)resolutionHeigh;
 - (NSInteger)getCaptureResolution;
 
+- (void)setVideoCodec:(NSInteger)videoCodec;
+- (NSInteger)getVideoCodec;
+
 @end

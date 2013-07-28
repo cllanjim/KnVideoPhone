@@ -89,12 +89,21 @@
                                     <segment title="640x480"/>
                                 </segments>
                             </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="NwP-KN-R7D">
+                                <rect key="frame" x="20" y="320" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="H.264"/>
+                                    <segment title="VP8"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="lblIPAddress" destination="vui-WC-fau" id="Xn7-Zu-EP4"/>
                         <outlet property="segResolution" destination="ajD-RX-3v1" id="a2x-cg-JmL"/>
+                        <outlet property="segVideoCodec" destination="NwP-KN-R7D" id="7Ig-sx-wKG"/>
                         <outlet property="tfCaptureFPS" destination="zlZ-nY-bdE" id="rzx-lC-aQs"/>
                         <outlet property="tfIPAddress" destination="Ici-He-Krz" id="Cq1-qJ-cWx"/>
                         <outlet property="tfPort" destination="TPK-bU-6P1" id="INz-cy-tkl"/>

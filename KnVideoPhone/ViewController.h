@@ -17,6 +17,7 @@
 @property (retain, nonatomic) IBOutlet UIButton* btnConnectServer;
 @property (retain, nonatomic) IBOutlet UITextField* tfCaptureFPS;
 @property (retain, nonatomic) IBOutlet UISegmentedControl* segResolution;
+@property (retain, nonatomic) IBOutlet UISegmentedControl* segVideoCodec;
 
 - (IBAction)startServer:(id)sender;
 - (IBAction)connectToServer:(id)sender;

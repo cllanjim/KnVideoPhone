@@ -8,7 +8,6 @@
 
 #import "VideoViewController.h"
 #import "KNStreamManager.h"
-#import "MediaManager.h"
 #import "SettingManager.h"
 #import "AlertManager.h"
 #import "MediaVideoParam.h"
@@ -16,7 +15,7 @@
 
 @interface VideoViewController ()
 @property (assign, atomic) BOOL sendVideoFrame;
-- (void)startVideoCapture;
+- (void)startVideoCapture2;
 - (void)startStream;
 @end
 
@@ -51,9 +50,7 @@
     NSLog(@"@StreamMode : %d, %d", _streamMode, peerImageNum);
     _naviBar.topItem.title = [[KNStreamManager sharedObject] getIPAddress];
 
-//    [self startVideoCapture];
-//    [self startStream];
-
+    [self startStream];
     [self startVideoCapture2];
 }
 
@@ -61,38 +58,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)startVideoCapture {
-    
-    NSInteger captureFPS = [[SettingManager sharedObject] getCaptureFPS];
-    NSInteger captureResolution = [[SettingManager sharedObject] getCaptureResolution];
-    
-    KNCaptureResolution resolution = kKNCaptureLow;
-    switch (captureResolution) {
-        case 144:
-            resolution = kKNCaptureLow;
-            break;
-        case 288:
-            resolution = kKNCapture288;
-            break;
-        case 480:
-            resolution = kKNCapture480;
-            break;
-    }
-    
-    [[MediaManager sharedObject] setOrientation:kKNVideoOrientationPortrait];
-    [[MediaManager sharedObject] videoCaptureStart:_viewPreview
-                                        resolution:resolution
-                                               fps:captureFPS
-                                videoPacketizeMode:kKNPacketizeMode_Single_Nal
-                                   appendRTPHeader:NO
-                                       encodeBlock:^(uint8_t *encData, int size)
-     {
-         if (_sendVideoFrame) {
-             [[KNStreamManager sharedObject] writeFram:encData size:size];
-         }
-     }];
 }
 
 
@@ -114,30 +79,26 @@
             break;
     }
 
+    KNVideoType videType = [[SettingManager sharedObject] getVideoCodec] == 0 ? kKNVideoH264 : kKNVideoVP8;
     
     MediaVideoParam* param = [[MediaVideoParam alloc] init];
     param.viewPreview = _viewPreview;
-    param.videoCodec = kKNVideoVP8;
+    param.viewPeerview = _viewPeer;
+    param.encVideoCodec = param.decVideoCodec = videType;
     param.captureResolution = resolution;
     param.captureFPS = captureFPS;
     param.captureOrientation = kKNVideoOrientationPortrait;
     param.packetizeMode = kKNPacketizeMode_Single_Nal;
     param.appendRtpHeader = NO;
+
     [param setEncOuputBlock:^(uint8_t *encBuffer, int size) {
-        
-//        [[MediaManager2 sharedObject] decodeVideo:_viewPeer
-//                                          encData:encBuffer
-//                                             size:size
-//                                        videoType:kKNVideoVP8
-//                                    packetizeMode:kKNPacketizeMode_Single_Nal];
-        [[MediaManager2 sharedObject] decodeVideo2:_viewPeer encData:encBuffer size:size];
+        if (_sendVideoFrame) {
+            [[KNStreamManager sharedObject] writeFram:encBuffer size:size];
+        }
     }];
+    
     [[MediaManager2 sharedObject] startVideoWithParam:param];
     [param release];
-    
-    
-    
-    
 }
 
 - (void)startStream {
@@ -159,14 +120,9 @@
 
     _sendVideoFrame = YES;
     [[KNStreamManager sharedObject] readFrameWithReadBlock:^(int streamid, uint8_t *buffer, int size) {
+
         if (streamid == 2) {
-    
-            if (_sendVideoFrame) {
-                [[MediaManager sharedObject] decodeVideo:_viewPeer
-                                                 encData:buffer
-                                                    size:size
-                                           packetizeMode:kKNPacketizeMode_Single_Nal];
-            }
+                [[MediaManager2 sharedObject] decodeVideoWithEncData:buffer size:size];
         }
     }];
     NSLog(@"@@@@@@@@END Recv");
@@ -231,7 +187,7 @@
         [UIApplication sharedApplication].idleTimerDisabled = NO;
         
         _sendVideoFrame = NO;
-        [[MediaManager sharedObject] videoCaptureStop];
+        [[MediaManager2 sharedObject] stopVideo];
         
         if (_streamMode == kKNStreamModeServer) {
             [[KNStreamManager sharedObject] closeServer];
