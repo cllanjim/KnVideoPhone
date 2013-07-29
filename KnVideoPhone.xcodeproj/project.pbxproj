@@ -41,7 +41,7 @@
 		1DBCDE38179F642C006B8DDB /* KNStreamManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCDE34179F642C006B8DDB /* KNStreamManager.mm */; };
 		1DBCDE39179F642C006B8DDB /* StreamManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCDE35179F642C006B8DDB /* StreamManager.cpp */; };
 		1DD2BD9217A2217B00B7F15A /* AVDecodeStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1DD2BD9017A2217B00B7F15A /* AVDecodeStream.cpp */; };
-		1DFF391E17A42D5D00AEAA41 /* libMediaManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DFF391D17A42D5D00AEAA41 /* libMediaManager.a */; };
+		1DFBFB0D17A5547A008B8BD3 /* libMediaManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DFBFB0C17A5547A008B8BD3 /* libMediaManager.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,12 +96,12 @@
 		1DBCDE36179F642C006B8DDB /* StreamManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamManager.h; sourceTree = "<group>"; };
 		1DD2BD9017A2217B00B7F15A /* AVDecodeStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AVDecodeStream.cpp; sourceTree = "<group>"; };
 		1DD2BD9117A2217B00B7F15A /* AVDecodeStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVDecodeStream.h; sourceTree = "<group>"; };
-		1DFF391717A42D5D00AEAA41 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
-		1DFF391817A42D5D00AEAA41 /* KNVideoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNVideoManager.h; sourceTree = "<group>"; };
-		1DFF391917A42D5D00AEAA41 /* MediaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaManager.h; sourceTree = "<group>"; };
-		1DFF391A17A42D5D00AEAA41 /* MediaManager2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaManager2.h; sourceTree = "<group>"; };
-		1DFF391B17A42D5D00AEAA41 /* MediaVideoParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaVideoParam.h; sourceTree = "<group>"; };
-		1DFF391D17A42D5D00AEAA41 /* libMediaManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMediaManager.a; sourceTree = "<group>"; };
+		1DFBFB0617A5547A008B8BD3 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		1DFBFB0717A5547A008B8BD3 /* MediaAudioParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaAudioParam.h; sourceTree = "<group>"; };
+		1DFBFB0817A5547A008B8BD3 /* MediaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaManager.h; sourceTree = "<group>"; };
+		1DFBFB0917A5547A008B8BD3 /* MediaManager2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaManager2.h; sourceTree = "<group>"; };
+		1DFBFB0A17A5547A008B8BD3 /* MediaVideoParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaVideoParam.h; sourceTree = "<group>"; };
+		1DFBFB0C17A5547A008B8BD3 /* libMediaManager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMediaManager.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +120,7 @@
 				1DBCDE0B179F61E7006B8DDB /* UIKit.framework in Frameworks */,
 				1DBCDE0D179F61E7006B8DDB /* Foundation.framework in Frameworks */,
 				1DBCDE0F179F61E7006B8DDB /* CoreGraphics.framework in Frameworks */,
-				1DFF391E17A42D5D00AEAA41 /* libMediaManager.a in Frameworks */,
+				1DFBFB0D17A5547A008B8BD3 /* libMediaManager.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +149,7 @@
 		1DBCDDFE179F61E7006B8DDB = {
 			isa = PBXGroup;
 			children = (
-				1DFF391417A42D5D00AEAA41 /* MdediaManager */,
+				1DFBFB0317A5547A008B8BD3 /* MdediaManager */,
 				1DB0511F17A0C14700B507E0 /* Util */,
 				1DBCDE30179F642C006B8DDB /* StreamManager */,
 				1DBCDE10179F61E7006B8DDB /* KnVideoPhone */,
@@ -233,39 +233,39 @@
 			path = StreamManager;
 			sourceTree = "<group>";
 		};
-		1DFF391417A42D5D00AEAA41 /* MdediaManager */ = {
+		1DFBFB0317A5547A008B8BD3 /* MdediaManager */ = {
 			isa = PBXGroup;
 			children = (
-				1DFF391517A42D5D00AEAA41 /* deploy */,
+				1DFBFB0417A5547A008B8BD3 /* deploy */,
 			);
 			path = MdediaManager;
 			sourceTree = "<group>";
 		};
-		1DFF391517A42D5D00AEAA41 /* deploy */ = {
+		1DFBFB0417A5547A008B8BD3 /* deploy */ = {
 			isa = PBXGroup;
 			children = (
-				1DFF391617A42D5D00AEAA41 /* include */,
-				1DFF391C17A42D5D00AEAA41 /* lib */,
+				1DFBFB0517A5547A008B8BD3 /* include */,
+				1DFBFB0B17A5547A008B8BD3 /* lib */,
 			);
 			path = deploy;
 			sourceTree = "<group>";
 		};
-		1DFF391617A42D5D00AEAA41 /* include */ = {
+		1DFBFB0517A5547A008B8BD3 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				1DFF391717A42D5D00AEAA41 /* Global.h */,
-				1DFF391817A42D5D00AEAA41 /* KNVideoManager.h */,
-				1DFF391917A42D5D00AEAA41 /* MediaManager.h */,
-				1DFF391A17A42D5D00AEAA41 /* MediaManager2.h */,
-				1DFF391B17A42D5D00AEAA41 /* MediaVideoParam.h */,
+				1DFBFB0617A5547A008B8BD3 /* Global.h */,
+				1DFBFB0717A5547A008B8BD3 /* MediaAudioParam.h */,
+				1DFBFB0817A5547A008B8BD3 /* MediaManager.h */,
+				1DFBFB0917A5547A008B8BD3 /* MediaManager2.h */,
+				1DFBFB0A17A5547A008B8BD3 /* MediaVideoParam.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
 		};
-		1DFF391C17A42D5D00AEAA41 /* lib */ = {
+		1DFBFB0B17A5547A008B8BD3 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				1DFF391D17A42D5D00AEAA41 /* libMediaManager.a */,
+				1DFBFB0C17A5547A008B8BD3 /* libMediaManager.a */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -456,10 +456,11 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/MdediaManager/deploy/lib\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "EC284140-2272-4E9F-B808-9C58016A4541";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EC284140-2272-4E9F-B808-9C58016A4541";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -477,10 +478,11 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/MdediaManager/deploy/lib\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "EC284140-2272-4E9F-B808-9C58016A4541";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EC284140-2272-4E9F-B808-9C58016A4541";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

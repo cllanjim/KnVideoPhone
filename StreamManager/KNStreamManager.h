@@ -24,5 +24,5 @@
 
 - (void)readFrameWithReadBlock:(void(^)(int streamid, uint8_t* buffer, int size))readBlock;
 - (void)readFrameStopWithThreadStopBlock:(void(^)(void))threadStopBlock;
-- (int)writeFram:(uint8_t *)buffer size:(int)size;
+- (int)writeFram:(int)streamid buffer:(uint8_t *)buffer size:(int)size;
 @end

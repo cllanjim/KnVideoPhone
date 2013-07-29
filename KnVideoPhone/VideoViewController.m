@@ -11,11 +11,16 @@
 #import "SettingManager.h"
 #import "AlertManager.h"
 #import "MediaVideoParam.h"
+#import "MediaAudioParam.h"
 #import "MediaManager2.h"
+#import "Global.h"
+
+#define TEST_LOOPBACK_PLAY          0
 
 @interface VideoViewController ()
 @property (assign, atomic) BOOL sendVideoFrame;
 - (void)startVideoCapture2;
+- (void)startAudioCapture;
 - (void)startStream;
 @end
 
@@ -50,8 +55,11 @@
     NSLog(@"@StreamMode : %d, %d", _streamMode, peerImageNum);
     _naviBar.topItem.title = [[KNStreamManager sharedObject] getIPAddress];
 
+#if TEST_LOOPBACK_PLAY == 0
     [self startStream];
+#endif
     [self startVideoCapture2];
+    [self startAudioCapture];
 }
 
 - (void)didReceiveMemoryWarning
@@ -92,13 +100,42 @@
     param.appendRtpHeader = NO;
 
     [param setEncOuputBlock:^(uint8_t *encBuffer, int size) {
+
+#if TEST_LOOPBACK_PLAY == 0
         if (_sendVideoFrame) {
-            [[KNStreamManager sharedObject] writeFram:encBuffer size:size];
+            [[KNStreamManager sharedObject] writeFram:2 buffer:encBuffer size:size];
         }
+#else
+        [[MediaManager2 sharedObject] decodeVideoWithEncData:encBuffer size:size];
+#endif
     }];
     
     [[MediaManager2 sharedObject] startVideoWithParam:param];
     [param release];
+}
+
+- (void)startAudioCapture {
+    
+    MediaAudioParam* ap = [[MediaAudioParam alloc] init];
+    ap.encAudioCodec = ap.decAudioCodec = kKNAudioSpeex;
+    ap.speexQuality = 8;
+    ap.samplerate = kSamplerate16k;
+    ap.appendRtpHeader = NO;
+    
+    [ap  setEncodeBlock:^(uint8_t *encBuffer, int size) {
+#if TEST_LOOPBACK_PLAY == 0
+        if (_sendVideoFrame) {
+            [[KNStreamManager sharedObject] writeFram:3 buffer:encBuffer size:size];
+        }
+#else
+        [[MediaManager2 sharedObject] decodeAudioWithEncData:pcm size:size];
+#endif
+    }];
+    
+    [[MediaManager2 sharedObject] startAudioWithParam:ap];
+    [ap release];
+    
+    
 }
 
 - (void)startStream {
@@ -120,9 +157,16 @@
 
     _sendVideoFrame = YES;
     [[KNStreamManager sharedObject] readFrameWithReadBlock:^(int streamid, uint8_t *buffer, int size) {
-
+        
         if (streamid == 2) {
-                [[MediaManager2 sharedObject] decodeVideoWithEncData:buffer size:size];
+            [[MediaManager2 sharedObject] decodeVideoWithEncData:buffer size:size];
+            return;
+        }
+
+        
+        if (streamid == 3) {
+            [[MediaManager2 sharedObject] decodeAudioWithEncData:buffer size:size];
+            return;
         }
     }];
     NSLog(@"@@@@@@@@END Recv");

@@ -16,8 +16,12 @@ static KNStreamManager* gInstance = nil;
 
 @interface KNStreamManager () {
     
-    uint8_t* videpStreamBuffer_;
-    uint32_t videpStreamBufferSize_;
+    uint8_t* videoStreamBuffer_;
+    uint32_t videoStreamBufferSize_;
+    
+    uint8_t* audioStreamBuffer_;
+    uint32_t audioStreamBufferSize_;
+
     StreamManager* stream_;
     
     void(^readFrameThreadStopBlock_)(void);
@@ -93,26 +97,36 @@ static KNStreamManager* gInstance = nil;
 
 - (void)setVideoRecieveBuffer {
     
-    videpStreamBufferSize_ = 1280 * 720 >> 3;
-    videpStreamBuffer_ = (uint8_t *)malloc(sizeof(uint8_t) * videpStreamBufferSize_);
+    videoStreamBufferSize_ = 1280 * 720 >> 3;
+    videoStreamBuffer_ = (uint8_t *)malloc(sizeof(uint8_t) * videoStreamBufferSize_);
 
-    self->stream_->registerDecodeStream(STREAM_VIDEO, videpStreamBuffer_);
+    self->stream_->registerDecodeStream(STREAM_VIDEO, videoStreamBuffer_);
+}
+
+- (void)setAudioRecieveBuffer {
+    
+    audioStreamBufferSize_ = 15000;
+    audioStreamBuffer_ = (uint8_t *)malloc(sizeof(uint8_t) * audioStreamBufferSize_);
+    
+    self->stream_->registerDecodeStream(STREAM_VOICE, audioStreamBuffer_);
 }
 
 - (void)readFrameWithReadBlock:(void(^)(int streamid, uint8_t* buffer, int size))readBlock {
     
-    if (videpStreamBuffer_ == NULL) {
+    if (videoStreamBuffer_ == NULL) {
         [self setVideoRecieveBuffer];
+    }
+    
+    if (audioStreamBuffer_ == NULL) {
+        [self setAudioRecieveBuffer];
     }
 
     while (_readFrameThreadStop == NO) {
-      
-        int ret = self->stream_->readFrame();
         
+        int ret = self->stream_->readFrame();
         if (_readFrameThreadStop)
             break;
         
-        //일단비디오만 처리
         switch (ret) {
             case STREAM_COMMAND:
                 break;
@@ -121,15 +135,13 @@ static KNStreamManager* gInstance = nil;
                 break;
 
             case STREAM_VIDEO:
+            case STREAM_VOICE:
                 if (readBlock) {
                     readBlock(ret,
                               (uint8_t *)self->stream_->decodeStream[ret]->buffer,
                               self->stream_->decodeStream[ret]->len);
                 }
                 self->stream_->decodeStream[ret]->reset();
-                break;
-
-            case STREAM_VOICE:
                 break;
                 
             case STREAM_AUDIO:
@@ -151,7 +163,6 @@ static KNStreamManager* gInstance = nil;
         
         if (_readFrameThreadStop)
             break;
-        
     }
     
     if (readFrameThreadStopBlock_) {
@@ -186,8 +197,13 @@ static KNStreamManager* gInstance = nil;
     _readFrameThreadStop = YES;
 }
 
-- (int)writeFram:(uint8_t *)buffer size:(int)size {
-    return self->stream_->writeVideoFrame(STREAM_VIDEO, buffer, size);
+- (int)writeFram:(int)streamid buffer:(uint8_t *)buffer size:(int)size {
+    
+    int ret = 0;
+    @synchronized(self) {
+        ret = self->stream_->writeVideoFrame(streamid, buffer, size);
+    }
+    return ret;
 }
 
 - (NSString *)getIPAddress

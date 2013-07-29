@@ -117,9 +117,9 @@ int StreamManager::connectToServer(const char *ipaddress, int port)
     mSocketAddr.sin_port = htons(port);
     inet_aton(ipaddress, &mSocketAddr.sin_addr);
 
-    printf("try to connectToServer : %s", ipaddress);
+    printf("try to connectToServer : %s\n", ipaddress);
     if(connect(mClientSocketFD, (struct sockaddr *)&mSocketAddr, sizeof(mSocketAddr)) == -1) {
-        printf("fail to connect : %s", ipaddress);
+        printf("fail to connect : %s\n", ipaddress);
         return -1;
     }
 
@@ -131,7 +131,7 @@ int StreamManager::connectToServer(const char *ipaddress, int port)
     setsockopt(mClientSocketFD, SOL_SOCKET, SO_SNDBUF, &opt_val, opt_len);
     setsockopt(mClientSocketFD, SOL_SOCKET, SO_RCVBUF, &opt_val, opt_len);
 
-    printf("success to connectToServer : %s", ipaddress);
+    printf("success to connectToServer : %s\n", ipaddress);
     return mClientSocketFD;
 }
 
@@ -139,7 +139,7 @@ void StreamManager::registerDecodeStream(int stream_id, unsigned char *pBuffer) 
 	if(decodeStream[stream_id] == NULL) {
 		decodeStream[stream_id]  = new AVDecodeStream(pBuffer);
         
-        printf("registerDecodeStream : %d %p", stream_id, decodeStream[stream_id]);
+        printf("registerDecodeStream : %d %p\n", stream_id, decodeStream[stream_id]);
 	}
 }
 
@@ -153,13 +153,13 @@ int StreamManager::readFrame() {
 			prefix_len -= readSize;
 		}
 		else {
-            printf("error : socket disconnect1");
+            printf("error : socket disconnect1\n");
 			return SOCKET_DISCONNECT;
 		}
 	} while(prefix_len>0);
-
+    
 	if(prefixBuffer[0] != 0xFF) {
-        printf("error : parse prefix0 %x", prefixBuffer[0]);
+        printf("error : parse prefix 0 %x\n", prefixBuffer[0]);
 		return PACKET_PARSE_ERROR;
 	}
 
@@ -176,7 +176,7 @@ int StreamManager::readFrame() {
 			payload_len -= readSize;
 		}
 		else {
-            printf("error : socket disconnect2");
+            printf("error : socket disconnect2\n");
 			return -3;
 		}
 	} while(payload_len>0);
