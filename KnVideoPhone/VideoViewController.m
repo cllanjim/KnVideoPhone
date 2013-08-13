@@ -15,7 +15,7 @@
 #import "MediaManager2.h"
 #import "Global.h"
 
-#define TEST_LOOPBACK_PLAY          0
+#define TEST_LOOPBACK_PLAY          1
 
 @interface VideoViewController ()
 @property (assign, atomic) BOOL sendVideoFrame;
@@ -48,17 +48,17 @@
     
     [UIApplication sharedApplication].idleTimerDisabled = YES;
     
-    int peerImageNum = (arc4random() % 3) + 1;
-    NSString* peerImageName = [NSString stringWithFormat:@"basePeer%d.jpg", peerImageNum];
-    _viewPeerImage.image = [UIImage imageNamed:peerImageName];
+//    int peerImageNum = (arc4random() % 3) + 1;
+//    NSString* peerImageName = [NSString stringWithFormat:@"basePeer%d.jpg", peerImageNum];
+//    _viewPeerImage.image = [UIImage imageNamed:peerImageName];
     
-    NSLog(@"@StreamMode : %d, %d", _streamMode, peerImageNum);
+//    NSLog(@"@StreamMode : %d, %d", _streamMode, peerImageNum);
     _naviBar.topItem.title = [[KNStreamManager sharedObject] getIPAddress];
 
 #if TEST_LOOPBACK_PLAY == 0
-    [self startStream];
+//    [self startStream];
 #endif
-    [self startVideoCapture2];
+//    [self startVideoCapture2];
     [self startAudioCapture];
 }
 
@@ -117,9 +117,10 @@
 - (void)startAudioCapture {
     
     MediaAudioParam* ap = [[MediaAudioParam alloc] init];
-    ap.encAudioCodec = ap.decAudioCodec = kKNAudioSpeex;
+    ap.encAudioCodec = ap.decAudioCodec = kKNAudioOpus;
     ap.speexQuality = 8;
     ap.samplerate = kSamplerate16k;
+    ap.channels = 1;
     ap.appendRtpHeader = NO;
     
     [ap  setEncodeBlock:^(uint8_t *encBuffer, int size) {
@@ -128,7 +129,8 @@
             [[KNStreamManager sharedObject] writeFram:3 buffer:encBuffer size:size];
         }
 #else
-        [[MediaManager2 sharedObject] decodeAudioWithEncData:pcm size:size];
+        if (size > 0)
+            [[MediaManager2 sharedObject] decodeAudioWithEncData:encBuffer size:size];
 #endif
     }];
     
